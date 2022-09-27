@@ -6,17 +6,17 @@ import { config } from '@root/config';
 import { BadRequestError } from '@global/helpers/error-handler';
 
 interface IMailOptions {
-  from: string;
-  to: string;
-  subject: string;
-  html: string;
+	from: string;
+	to: string;
+	subject: string;
+	html: string;
 }
 
 const log: Logger = config.createLogger('mailOptions');
-sendGridMail.setApiKey(config.SENDGRID_API_KEY!);
+/* sendGridMail.setApiKey(config.SENDGRID_API_KEY!); */
 
 class MailTransport {
-  public async sendEmail(receiverEmail: string, subject: string, body: string): Promise<void> {
+	/*  public async sendEmail(receiverEmail: string, subject: string, body: string): Promise<void> {
     if (config.NODE_ENV === 'test' || config.NODE_ENV === 'development') {
       this.developmentEmailSender(receiverEmail, subject, body);
     } else {
@@ -66,7 +66,7 @@ class MailTransport {
       log.error('Error sending email', error);
       throw new BadRequestError('Error sending email');
     }
-  }
+  } */
 }
 
 export const mailTransport: MailTransport = new MailTransport();
